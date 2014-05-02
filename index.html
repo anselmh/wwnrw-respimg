@@ -67,7 +67,25 @@
                     <script type="text/template">
 ## A World’s 1st
 
-Webstandards von einer Community Group, bald implementiert von allen großen Browserherstellern*
+Webstandard von einer Community Group, bald implementiert von allen großen Browserherstellern*
+
+Implementierung [Crowd-Funded](https://www.indiegogo.com/projects/picture-element-implementation-in-blink) und von der Community
+                    </script>
+                </section>
+
+                <section data-markdown data-background="url('../img/Kanada_2012_27-1920x1280.jpg')">
+                    <script type="text/template">
+## Responsive Images?
+
+Abhängig des Geräts und seiner Auflösung geladende Bildressourcen
+                    </script>
+                </section>
+
+                <section data-markdown data-background="url('../img/Kanada_2012_27-1920x1280.jpg')">
+                    <script type="text/template">
+#### _„Erzähl uns eine Geschichte!“_
+#### Na gut:
+## „Es war ein mal vor langer langer Zeit...“
                     </script>
                 </section>
 
@@ -102,11 +120,11 @@ Webstandards von einer Community Group, bald implementiert von allen großen Bro
                     <script type="text/template">
 ## „Wir können das nicht implementieren“
 
-&rarr; zu komplex<br>
+&rarr; „das ist zu komplex einzubauen“<br>
 &rarr; `<img>` Element nicht erweiterbar<br>
-&rarr; `<video>` war Scheiße, nicht nochmal.<br>
+&rarr; „`<video>` war ein Fehler, ja nicht noch einmal”<br>
 &rarr; Und überhaupt—wie?<br>
-&rarr; `srcset` by one(!) WebKit engineer
+&rarr; `srcset` by one Apple engineer
                     </script>
                 </section>
 
@@ -166,6 +184,17 @@ von Anselm Hannemann
                     </script>
                 </section>
 
+                <section data-markdown data-background="url('../img/Market-1920x1280.jpg')">
+                    <script type="text/template">
+## src-N Approach
+
+    <img src-1="(max-width: 480px) pic-phone.jpg"
+         src-2="(max-width: 1024px) pic-tablet.jpg"
+         src="pic-desktop.jpg"
+         alt="The picture description.">
+                    </script>
+                </section>
+
                 <section class="has-blur" data-markdown data-background="url('../img/1j5J2cY.jpg')">
                     <script type="text/template">
 ## Mai 2012—Der Crash!
@@ -201,6 +230,106 @@ Nur der unbeharrlich kämpfenden Community verdanken wir, dass wir jetzt eine gu
                     </script>
                 </section>
 
+
+                <section class="has-blur" data-markdown data-background="url('../img/1j5J2cY.jpg')">
+                    <script type="text/template">
+## `<picture>` 2.0
+
+    <picture>
+         <source media="(min-width: 45em)"
+                 srcset="large.jpg 1x, large-2x.jpg 2x">
+         <source media="(min-width: 18em)"
+                 srcset="medium.jpg 1x, medium-2x.jpg 2x">
+         <img src="small.jpg" srcset="small-2x.jpg 2x"
+              alt="The president.">
+    </picture>
+                    </script>
+                </section>
+
+                <section class="has-blur" data-markdown data-background="url('../img/1j5J2cY.jpg')">
+                    <script type="text/template">
+## Der `srcset` Teil („AKA Retina Bilder“)
+
+    <picture>
+         <source media="(min-width: 18em)"
+                 srcset="medium.jpg 1x, medium-2x.jpg 2x">
+         <img src="small.jpg" srcset="small-2x.jpg 2x"
+              alt="The president.">
+    </picture>
+                    </script>
+                </section>
+
+                <section class="has-blur" data-markdown data-background="url('../img/1j5J2cY.jpg')">
+                    <script type="text/template">
+## Der `<picture>` Teil („AKA Art Direction“)
+
+    <picture>
+         <source media="(min-width: 18em)"
+                 srcset="medium.jpg 1x, medium-2x.jpg 2x">
+         <img src="small.jpg" srcset="small-2x.jpg 2x"
+              alt="The president.">
+    </picture>
+
+![Art Direction Showcase showing different photo crops](./img/w3c_resp_img_art_direction.jpg)
+                    </script>
+                </section>
+
+                <section class="has-blur" data-markdown data-background="url('../img/1j5J2cY.jpg')">
+                    <script type="text/template">
+## Der `<picture>` Teil
+### MIME Type Fallback (WebP, JPEG XR, etc.)
+
+![](./img/kodak-rgbssim-fs-ratio.png)
+                    </script>
+                </section>
+
+                <section class="has-blur" data-markdown data-background="url('../img/1j5J2cY.jpg')">
+                    <script type="text/template">
+## Der `<picture><img>` Teil
+
+`<img>` wird immer als Fallback benötigt und dient gleichzeitig als default Ressource
+
+                    </script>
+                </section>
+
+                <section class="has-blur" data-markdown data-background="url('../img/1j5J2cY.jpg')">
+                    <script type="text/template">
+## Der „heißer Scheiß“ Teil
+#### Flexible Bildgrößen
+
+![](./img/viewport_selection_mob_first.jpg)
+                    </script>
+                </section>
+
+                <section class="has-blur" data-markdown data-background="url('../img/1j5J2cY.jpg')">
+                    <script type="text/template">
+## Der „heißer Scheiß“ Teil
+#### Flexible Bildgrößen
+
+    <picture>
+        <source media="(max-width: 80em)"
+                sizes="(max-width: 30em) 100vw,
+                 (max-width: 50em) 50vw,
+                 calc(33vw - 100px)"
+                srcset="pic100.jpg 100w, pic200.jpg 200w,
+                        pic400.jpg 400w, pic800.jpg 800w, pic1600.jpg 1600w,
+                        pic3200.jpg 3200w">
+        <img src="phew.jpg" alt="Woah, what is this?!">
+    </picture>
+                    </script>
+                </section>
+
+                <section class="has-blur" data-markdown data-background="url('../img/1j5J2cY.jpg')">
+                    <script type="text/template">
+## Browser Support
+
+- Blink (by RICG, Yoav Weiss)
+- WebKit (hopefully by Apple / RICG, Yoav Weiss)
+- Firefox (by Mozilla)
+- IE (by MS team, although no timeframe)
+                    </script>
+                </section>
+
                 <section class="has-blur" data-markdown data-background="url('../img/1j5J2cY.jpg')">
                     <script type="text/template">
 ## Picturefill 2.0
@@ -208,6 +337,9 @@ Nur der unbeharrlich kämpfenden Community verdanken wir, dass wir jetzt eine gu
 - Polyfill mit der neuesten Syntax
 - Verfügbar via Bower (+ Download)
 - API (call on demand, reevaluate)
+- Double download in wenigen Browsern
+- [Produktiv durchaus einsetzbar](http://www.vaillant-energiesparbonus.de/)
+- Es wird einen Custom Build Generator geben
                     </script>
                 </section>
 
@@ -215,6 +347,7 @@ Nur der unbeharrlich kämpfenden Community verdanken wir, dass wir jetzt eine gu
                     <script type="text/template">
 ## HTML5 Shiv &amp; Modernizr Test
 
+- Plain JS: `HTMLImageElement.sizes` & `HTMLPictureElement`
 - [HTML5Shiv v3.7.1 supports picture-element](https://github.com/aFarkas/html5shiv/commit/c163f8d0668cc37ff72083f40d128753d7e817cb)
 - [Modernizr (master) supports picture and srcset tests](https://github.com/Modernizr/Modernizr/pull/1302/).
                     </script>
@@ -230,20 +363,6 @@ Teste es:
                     </script>
                 </section>
 
-                <section class="has-blur" data-markdown data-background="url('../img/1j5J2cY.jpg')">
-                    <script type="text/template">
-##
-
-                    </script>
-                </section>
-
-                <section class="has-blur" data-markdown data-background="url('../img/1j5J2cY.jpg')">
-                    <script type="text/template">
-##
-
-                    </script>
-                </section>
-
                 <section class="profile" data-background="url('../img/1j5J2cY.jpg')">
                     <h2>&hearts; Danke!</h2>
                     <p class="profile_picture"><img src="img/anselm-cologne-300.jpg"></p>
@@ -252,6 +371,7 @@ Teste es:
                         <li><a href="http://helloanselm.com/">helloanselm.com</a></li>
                         <li><a href="https://twitter.com/helloanselm">@helloanselm</a></li>
                     </ul>
+                    <p><small>Bilder von <a href="http://cfremdt.de" target="_blank">cfremdt.de</a></small></p>
                 </section>
 			</div>
 		</div>

@@ -24,7 +24,7 @@ $backgroundColor: #fff;
 $backgroundColor: url('../../img/fields.jpg') center center;
 
 $mainFont: 'PT Serif', Times, serif;
-$mainColor: #111;
+$mainColor: #fff;
 
 $headingMargin: 0 0 0.5em 0;
 $headingLineHeight: 0.9em;
@@ -75,6 +75,12 @@ h2
 .reveal h2 {
     font-weight: normal;
     letter-spacing: 0;
+}
+
+p,
+.reveal p,
+.reveal li {
+    // text-shadow: 1px 1px 1px #fff;
 }
 
 .reveal h1 {

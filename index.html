@@ -63,7 +63,7 @@
 					</aside>
 				</section>
 
-                <section data-markdown data-background="url('../img/Kanada_2012_27-1920x1280.jpg')">
+                <section data-markdown data-background="url('../img/unsplash_523136e951a4a_1.jpg')">
                     <script type="text/template">
 ## A World’s 1st
 
@@ -73,7 +73,7 @@ Implementierung [Crowd-Funded](https://www.indiegogo.com/projects/picture-elemen
                     </script>
                 </section>
 
-                <section data-markdown data-background="url('../img/Kanada_2012_27-1920x1280.jpg')">
+                <section data-markdown data-background="url('../img/unsplash_523136e951a4a_1.jpg')">
                     <script type="text/template">
 ## Responsive Images?
 
@@ -81,7 +81,7 @@ Abhängig des Geräts und seiner Auflösung geladende Bildressourcen
                     </script>
                 </section>
 
-                <section data-markdown data-background="url('../img/Kanada_2012_27-1920x1280.jpg')">
+                <section data-markdown data-background="url('../img/unsplash_523136e951a4a_1.jpg.jpg')">
                     <script type="text/template">
 #### _„Erzähl uns eine Geschichte!“_
 #### Na gut:
@@ -116,7 +116,7 @@ Abhängig des Geräts und seiner Auflösung geladende Bildressourcen
                     </script>
                 </section>
 
-                <section class="has-blur" data-markdown data-background="url('../img/Market-1920x1280.jpg')">
+                <section class="has-blur" data-markdown data-background="url('../img/Nashville14.jpg')">
                     <script type="text/template">
 ## „Wir können das nicht implementieren“
 
@@ -195,7 +195,7 @@ von Anselm Hannemann
                     </script>
                 </section>
 
-                <section class="has-blur" data-markdown data-background="url('../img/1j5J2cY.jpg')">
+                <section class="has-blur" data-markdown data-background="url('../img/IMG_3368-e1399055697486.jpg')">
                     <script type="text/template">
 ## Mai 2012—Der Crash!
 
@@ -203,7 +203,7 @@ WHATWG &amp; W3C vs. the Community
                     </script>
                 </section>
 
-                <section class="has-blur" data-markdown data-background="url('../img/1j5J2cY.jpg')">
+                <section class="has-blur" data-markdown data-background="url('../img/IMG_3368-e1399055697486.jpg')">
                     <script type="text/template">
 ## &hearts;<br>Community!
 
@@ -224,7 +224,7 @@ Nur der unbeharrlich kämpfenden Community verdanken wir, dass wir jetzt eine gu
 ## Die Implementierung steht so gut wie[*](http://www.indiegogo.com/projects/picture-element-implementation-in-blink)
 
 - Blink (by RICG, Yoav Weiss)
-- WebKit (hopefully by Apple / RICG, Yoav Weiss)
+- WebKit (by RICG, Yoav Weiss)
 - Firefox (by Mozilla)
 - IE (by MS team, although no timeframe)
                     </script>
@@ -323,9 +323,9 @@ Nur der unbeharrlich kämpfenden Community verdanken wir, dass wir jetzt eine gu
                     <script type="text/template">
 ## Browser Support
 
-- Blink (by RICG, Yoav Weiss)
-- WebKit (hopefully by Apple / RICG, Yoav Weiss)
-- Firefox (by Mozilla)
+- Blink (by RICG, Yoav Weiss, `srcset` finished)
+- Firefox (by Mozilla, `<picture>` soon in Nightly)
+- WebKit (by RICG, Yoav Weiss)
 - IE (by MS team, although no timeframe)
                     </script>
                 </section>
@@ -355,6 +355,32 @@ Nur der unbeharrlich kämpfenden Community verdanken wir, dass wir jetzt eine gu
 
                 <section class="has-blur" data-markdown data-background="url('../img/1j5J2cY.jpg')">
                     <script type="text/template">
+## DPR Switching via [Client Hints](http://tools.ietf.org/html/draft-grigorik-http-client-hints-01#section-3)
+
+- noch nicht verfügbar
+- proaktive Content Negotiation
+
+     (request) GET /img.jpg HTTP/1.1 User-Agent: Awesome Browser Accept: image/webp, image/jpg CH-DPR: 2.0
+     (response) HTTP/1.1 200 OK Server: Awesome Server Content-Type: image/jpg Content-Length: 124523 Vary: CH-DPR DPR: 2.0
+
+                    </script>
+                </section>
+
+                <section class="has-blur" data-markdown data-background="url('../img/1j5J2cY.jpg')">
+                    <script type="text/template">
+## DPR Switching via [Client Hints](http://tools.ietf.org/html/draft-grigorik-http-client-hints-01#section-3)
+
+     (request) GET /img.jpg HTTP/1.1 User-Agent: Awesome Browser Accept: image/webp, image/jpg CH-DPR: 2.0
+     (response) HTTP/1.1 200 OK Server: Awesome Server Content-Type: image/jpg Content-Length: 124523 Vary: CH-DPR DPR: 2.0
+
+CH-DPR - Device Pixel Ratio<br>
+CH-RW - Requested Width<br>
+[Automatic DPR switching with client hints](http://www.igvita.com/2013/08/29/automating-dpr-switching-with-client-hints/)
+                    </script>
+                </section>
+
+                <section class="has-blur" data-markdown data-background="url('../img/1j5J2cY.jpg')">
+                    <script type="text/template">
 ## Aber brauche ich das überhaupt?
 
 Teste es:
@@ -371,7 +397,7 @@ Teste es:
                         <li><a href="http://helloanselm.com/">helloanselm.com</a></li>
                         <li><a href="https://twitter.com/helloanselm">@helloanselm</a></li>
                     </ul>
-                    <p><small>Bilder von <a href="http://cfremdt.de" target="_blank">cfremdt.de</a></small></p>
+                    <p><small>Bilder von <a href="http://cfremdt.de" target="_blank">cfremdt.de</a> und <a href="http://deathtothestockphoto.com">deathtothestockphoto.com</a></small></p>
                 </section>
 			</div>
 		</div>

@@ -53,6 +53,7 @@
                     <p class="profile_picture"><img src="img/anselm-cologne-300.jpg"></p>
                     <ul class="profile_props">
                         <li>aus München &amp; aktuell Köln</li>
+                        <li><a href="https://twitter.com/helloanselm">@helloanselm</a></li>
                         <li><a href="http://helloanselm.com/">Freelance Front-End Architect</a></li>
                         <li><a href="http://responsiveimages.org/">Responsive Images Community Group</a></li>
                         <li><a href="http://opendevicelab.com/">OpenDeviceLab.com</li>
@@ -123,8 +124,13 @@ Abhängig des Geräts und seiner Auflösung geladende Bildressourcen
 &rarr; „das ist zu komplex einzubauen“<br>
 &rarr; `<img>` Element nicht erweiterbar<br>
 &rarr; „`<video>` war ein Fehler, ja nicht noch einmal”<br>
-&rarr; Und überhaupt—wie?<br>
-&rarr; `srcset` by one Apple engineer
+&rarr; Und überhaupt—wie?
+                    </script>
+                </section>
+
+                <section class="has-blur" data-markdown data-background="url('../img/Nashville14.jpg')">
+                    <script type="text/template">
+## `srcset` by one Apple engineer
                     </script>
                 </section>
 
@@ -248,20 +254,31 @@ Nur der unbeharrlich kämpfenden Community verdanken wir, dass wir jetzt eine gu
 
                 <section class="has-blur" data-markdown data-background="url('../img/1j5J2cY.jpg')">
                     <script type="text/template">
-## Der `srcset` Teil („AKA Retina Bilder“)
+## Der `srcset` Teil <br>(„AKA Retina Bilder“)
 
-    <picture>
-         <source media="(min-width: 18em)"
-                 srcset="medium.jpg 1x, medium-2x.jpg 2x">
-         <img src="small.jpg" srcset="small-2x.jpg 2x"
-              alt="The president.">
-    </picture>
+     <img src="small.jpg"
+          srcset="small-2x.jpg 2x"
+          alt="The president.">
                     </script>
                 </section>
 
                 <section class="has-blur" data-markdown data-background="url('../img/1j5J2cY.jpg')">
                     <script type="text/template">
-## Der `<picture>` Teil („AKA Art Direction“)
+## Der `<picture>` Teil <br>(„AKA Art Direction“)
+                    </script>
+                </section>
+
+                <section class="has-blur" data-markdown data-background="url('../img/1j5J2cY.jpg')">
+                    <script type="text/template">
+## Der `<picture>` Teil <br>(„AKA Art Direction“)
+
+![Art Direction Showcase showing different photo crops](./img/w3c_resp_img_art_direction.jpg)
+                    </script>
+                </section>
+
+                <section class="has-blur" data-markdown data-background="url('../img/1j5J2cY.jpg')">
+                    <script type="text/template">
+## Der `<picture>` Teil <br>(„AKA Art Direction“)
 
     <picture>
          <source media="(min-width: 18em)"
@@ -269,8 +286,6 @@ Nur der unbeharrlich kämpfenden Community verdanken wir, dass wir jetzt eine gu
          <img src="small.jpg" srcset="small-2x.jpg 2x"
               alt="The president.">
     </picture>
-
-![Art Direction Showcase showing different photo crops](./img/w3c_resp_img_art_direction.jpg)
                     </script>
                 </section>
 
@@ -288,13 +303,12 @@ Nur der unbeharrlich kämpfenden Community verdanken wir, dass wir jetzt eine gu
 ## Der `<picture><img>` Teil
 
 `<img>` wird immer als Fallback benötigt und dient gleichzeitig als default Ressource
-
                     </script>
                 </section>
 
                 <section class="has-blur" data-markdown data-background="url('../img/1j5J2cY.jpg')">
                     <script type="text/template">
-## Der „heißer Scheiß“ Teil
+## Der „Oha!“-Teil
 #### Flexible Bildgrößen
 
 ![](./img/viewport_selection_mob_first.jpg)
@@ -303,7 +317,7 @@ Nur der unbeharrlich kämpfenden Community verdanken wir, dass wir jetzt eine gu
 
                 <section class="has-blur" data-markdown data-background="url('../img/1j5J2cY.jpg')">
                     <script type="text/template">
-## Der „heißer Scheiß“ Teil
+## Der „Oha!“ Teil
 #### Flexible Bildgrößen
 
     <picture>
@@ -324,7 +338,7 @@ Nur der unbeharrlich kämpfenden Community verdanken wir, dass wir jetzt eine gu
 ## Browser Support
 
 - Blink (by RICG, Yoav Weiss, `srcset` finished)
-- Firefox (by Mozilla, `<picture>` soon in Nightly)
+- Firefox (by Mozilla, `<picture>` very soon in Nightly)
 - WebKit (by RICG, Yoav Weiss)
 - IE (by MS team, although no timeframe)
                     </script>
@@ -360,8 +374,15 @@ Nur der unbeharrlich kämpfenden Community verdanken wir, dass wir jetzt eine gu
 - noch nicht verfügbar
 - proaktive Content Negotiation
 
-     (request) GET /img.jpg HTTP/1.1 User-Agent: Awesome Browser Accept: image/webp, image/jpg CH-DPR: 2.0
-     (response) HTTP/1.1 200 OK Server: Awesome Server Content-Type: image/jpg Content-Length: 124523 Vary: CH-DPR DPR: 2.0
+
+    (request) GET /img.jpg HTTP/1.1 User-Agent: Awesome Browser
+        Accept: image/webp, image/jpg
+        CH-DPR: 2.0
+    (response) HTTP/1.1 200 OK Server: Awesome Server
+        Content-Type: image/jpg
+        Content-Length: 124523
+        Vary: CH-DPR
+        DPR: 2.0
 
                     </script>
                 </section>
@@ -370,8 +391,15 @@ Nur der unbeharrlich kämpfenden Community verdanken wir, dass wir jetzt eine gu
                     <script type="text/template">
 ## DPR Switching via [Client Hints](http://tools.ietf.org/html/draft-grigorik-http-client-hints-01#section-3)
 
-     (request) GET /img.jpg HTTP/1.1 User-Agent: Awesome Browser Accept: image/webp, image/jpg CH-DPR: 2.0
-     (response) HTTP/1.1 200 OK Server: Awesome Server Content-Type: image/jpg Content-Length: 124523 Vary: CH-DPR DPR: 2.0
+
+    (request) GET /img.jpg HTTP/1.1 User-Agent: Awesome Browser
+        Accept: image/webp, image/jpg
+        CH-DPR: 2.0
+    (response) HTTP/1.1 200 OK Server: Awesome Server
+        Content-Type: image/jpg
+        Content-Length: 124523
+        Vary: CH-DPR
+        DPR: 2.0
 
 CH-DPR - Device Pixel Ratio<br>
 CH-RW - Requested Width<br>
@@ -386,6 +414,20 @@ CH-RW - Requested Width<br>
 Teste es:
 
 ## [Sizer Soze](http://sizersoze.org/)
+                    </script>
+                </section>
+
+                <section class="has-blur" data-markdown data-background="url('../img/1j5J2cY.jpg')">
+                    <script type="text/template">
+## Weitere Infos
+
+## [responsiveimages.org](http://responsiveimages.org/)
+
+- Newsletter
+- Use Cases
+- Demos
+- Specifications
+- GitHub issues, u.v.m.
                     </script>
                 </section>
 

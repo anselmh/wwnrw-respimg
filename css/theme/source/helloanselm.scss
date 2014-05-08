@@ -35,7 +35,8 @@ $headingTextTransform: none;
 $headingTextShadow: 0;
 $heading1TextShadow: $headingTextShadow;
 
-$linkColor: #9B2335;
+// $linkColor: #9B2335; // RICG red
+$linkColor: lighten(#0084c0, 30%); // blue
 $linkColorHover: lighten($linkColor, 20%);
 
 $selectionBackgroundColor: #ff0000;
@@ -52,6 +53,8 @@ $midGray: #888;
 
     &:nth-child(n+7) {
         -webkit-filter: blur(10px);
+        -moz-filter: blur(10px);
+        filter: blur(10px);
     }
 }
 
@@ -91,6 +94,7 @@ img,
 .reveal section img {
     border: 0;
     box-shadow: none;
+    background: none;
 }
 
 .reveal blockquote {
